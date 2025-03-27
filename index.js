@@ -20,7 +20,7 @@ const startServer = () => {
 };
 
 // Add Chromium flag to map example.com → localhost:5000
-app.commandLine.appendSwitch("host-rules", "MAP example.com 127.0.0.1:5000");
+app.commandLine.appendSwitch("host-rules", "MAP kith.com 127.0.0.1:5000");
 
 // --- Electron Window ---
 function createWindow() {
@@ -32,7 +32,7 @@ function createWindow() {
     },
   });
 
-  win.loadURL("http://example.com"); // Actually loads local HTML!
+  win.loadURL("http://kith.com"); // Actually loads local HTML!
 }
 
 app.whenReady().then(() => {
