@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8" />
-    <title>My Electron App</title>
+    <title>CAPTCHA Harvester</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+      function onCaptcha(token) {
+        // Send the token back to the main process (via preload.js)
+        window.captchaAPI?.sendToken(token);
+        console.log("CAPTCHA Token:", token);
+      }
+    </script>
   </head>
   <body>
-    <h1>Welcome to Electron!</h1>
-    <p id="message"></p>
-    <script src="renderer.js"></script>
+    <h2>CAPTCHA Harvester</h2>
+    <p>Please complete the CAPTCHA:</p>
+
+    <div
+      class="g-recaptcha"
+      data-sitekey="6Le-wvkSAAAAAPBMRTvw0Q4Muexq9bi0DJwx_mJ-"
+      data-callback="onCaptcha"
+    ></div>
   </body>
 </html>
